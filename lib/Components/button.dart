@@ -13,12 +13,12 @@ class Button extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8),
       width: size.width * .9,
       decoration: BoxDecoration(
-          color: primaryColor, borderRadius: BorderRadius.circular(8)),
+          color: submitcolor, borderRadius: BorderRadius.circular(8)),
       child: TextButton(
         onPressed: press,
         child: Text(
           label,
-          style: const TextStyle(color: Colors.amber),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );

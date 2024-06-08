@@ -9,12 +9,13 @@ class InputField extends StatelessWidget {
   final bool passwordInvisible;
   final TextEditingController controller;
 
-  const InputField(
-      {super.key,
-      required this.hint,
-      required this.icon,
-      required this.controller,
-      this.passwordInvisible = false});
+  const InputField({
+    super.key,
+    required this.hint,
+    required this.icon,
+    required this.controller,
+    this.passwordInvisible = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class InputField extends StatelessWidget {
       width: size.width * 0.9,
       height: 55,
       decoration: BoxDecoration(
-          color: backgroundColor, borderRadius: BorderRadius.circular(8)),
+          color: textfieldcolor, borderRadius: BorderRadius.circular(8)),
       child: Center(
         child: TextFormField(
           obscureText: passwordInvisible,

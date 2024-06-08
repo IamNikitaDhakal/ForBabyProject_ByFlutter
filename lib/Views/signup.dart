@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutterproject/Components/button.dart';
 import 'package:flutterproject/Components/colors.dart';
@@ -66,9 +68,13 @@ class _SignupScreenState extends State<SignupScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 50),
               const Text(
                 "SIGN UP",
-                style: TextStyle(color: primaryColor, fontSize: 40),
+                style: TextStyle(
+                    color: submitcolor,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold),
               ),
               Image.asset(
                 "assets/logo.jpg",
@@ -103,7 +109,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 title: const Text("I agree to the terms and conditions"),
                 leading: Checkbox(
                   value: isChecked,
-                  activeColor: primaryColor,
+                  activeColor: textfieldcolor,
                   onChanged: (value) {
                     setState(() {
                       isChecked = value ?? false;
@@ -117,7 +123,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 children: [
                   const Text(
                     "Already have an account?",
-                    style: TextStyle(color: Colors.amberAccent),
+                    style: TextStyle(color: Colors.black),
                   ),
                   TextButton(
                     onPressed: () {
@@ -126,7 +132,10 @@ class _SignupScreenState extends State<SignupScreen> {
                           MaterialPageRoute(
                               builder: (context) => const LoginScreen()));
                     },
-                    child: const Text("LOGIN"),
+                    child: const Text(
+                      "LOGIN",
+                      style: TextStyle(color: submitcolor),
+                    ),
                   ),
                 ],
               ),

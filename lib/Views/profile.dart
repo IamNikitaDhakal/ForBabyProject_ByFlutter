@@ -18,13 +18,13 @@ class Profile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const CircleAvatar(
-                    backgroundColor: primaryColor,
+                    backgroundColor: textfieldcolor,
                     radius: 75,
                   ),
                   const SizedBox(height: 10),
                   const Text(
                     "Nikita Dhakal",
-                    style: TextStyle(fontSize: 28, color: primaryColor),
+                    style: TextStyle(fontSize: 28, color: textfieldcolor),
                   ),
                   const Text(
                     "nikitadhakal@gmail.com",

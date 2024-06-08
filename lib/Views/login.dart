@@ -49,9 +49,13 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 100),
               const Text(
-                "LOGIN",
-                style: TextStyle(color: primaryColor, fontSize: 40),
+                "WELCOME BACK",
+                style: TextStyle(
+                    color: submitcolor,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold),
               ),
               Image.asset(
                 "assets/logo.jpg",
@@ -74,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 title: const Text("Remember me"),
                 leading: Checkbox(
                   value: isChecked,
-                  activeColor: primaryColor,
+                  activeColor: textfieldcolor,
                   onChanged: (value) {
                     setState(() {
                       isChecked = value ?? false;
@@ -91,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const Text(
                     "Don't have an account?",
-                    style: TextStyle(color: Colors.amberAccent),
+                    style: TextStyle(color: textcolor),
                   ),
                   TextButton(
                     onPressed: () {
@@ -102,14 +106,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       );
                     },
-                    child: const Text("SIGN UP"),
+                    child: const Text("SIGN UP",
+                        style: TextStyle(color: submitcolor)),
                   ),
                 ],
               ),
               isLoginFailed
-                  ? Text(
+                  ? const Text(
                       "Username or Password is incorrect",
-                      style: TextStyle(color: Colors.red.shade100),
+                      style: TextStyle(color: errorcolor),
                     )
                   : const SizedBox(),
             ],
