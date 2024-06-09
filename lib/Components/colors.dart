@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const whites = Colors.white;
 const textcolor = Colors.black;
 const textfieldcolor = Color.fromARGB(255, 194, 227, 252);
 const submitcolor = Color.fromARGB(255, 226, 110, 229);

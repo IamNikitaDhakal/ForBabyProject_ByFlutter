@@ -1,5 +1,7 @@
+import 'dart:io';
+
 class Item {
-  final int id;
+  int? id;
   final String productName;
   final double expectedPrice;
   final String productDescription;
@@ -16,19 +18,8 @@ class Item {
     required this.productLocation,
     required this.imagePath,
     required this.createdAt,
-    this.updatedAt,
+    required this.updatedAt,
   });
-
-  factory Item.fromMap(Map<String, dynamic> map) => Item(
-        id: map['id'],
-        productName: map['productName'],
-        expectedPrice: map['expectedPrice'],
-        productDescription: map['productDescription'],
-        productLocation: map['productLocation'],
-        imagePath: map['imagePath'],
-        createdAt: map['createdAt'],
-        updatedAt: map['updatedAt'],
-      );
 
   Map<String, dynamic> toMap() {
     return {
@@ -42,4 +33,15 @@ class Item {
       'updatedAt': updatedAt,
     };
   }
+
+  factory Item.fromMap(Map<String, dynamic> map) => Item(
+        id: map['id'],
+        productName: map['productName'],
+        expectedPrice: map['expectedPrice'],
+        productDescription: map['productDescription'],
+        productLocation: map['productLocation'],
+        imagePath: map['imagePath'],
+        createdAt: map['createdAt'],
+        updatedAt: map['updatedAt'],
+      );
 }
