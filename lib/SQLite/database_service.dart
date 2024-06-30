@@ -26,7 +26,7 @@ class DatabaseService {
       path,
       version: 1,
       onCreate: (db, version) async {
-        await ItemDB().createTable(db);
+        await ItemDB.createTable(db); // Correctly call the static method
       },
     );
   }

@@ -19,18 +19,9 @@ class Auth extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Authentication",
-                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  "Authentication to access your vital",
-                  style: TextStyle(color: Colors.black),
-                ),
                 const SizedBox(height: 16),
                 Expanded(
-                    child: Image.asset("assets/logo.jpg",
+                    child: Image.asset("assets/logophoto.jpg",
                         height: 200, width: 200)),
                 const SizedBox(height: 32),
                 Button(

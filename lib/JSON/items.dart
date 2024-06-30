@@ -1,14 +1,13 @@
-import 'dart:io';
+// items.dart
 
 class Item {
-  int? id;
+  final int id;
   final String productName;
   final double expectedPrice;
   final String productDescription;
   final String productLocation;
-  final String imagePath; // Updated to non-nullable
-  final String createdAt;
-  final String? updatedAt;
+  final String? imagePath;
+  bool isPurchased; // Define the property as a boolean
 
   Item({
     required this.id,
@@ -16,32 +15,7 @@ class Item {
     required this.expectedPrice,
     required this.productDescription,
     required this.productLocation,
-    required this.imagePath,
-    required this.createdAt,
-    required this.updatedAt,
+    this.imagePath,
+    this.isPurchased = false, // Default value is false
   });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'productName': productName,
-      'expectedPrice': expectedPrice,
-      'productDescription': productDescription,
-      'productLocation': productLocation,
-      'imagePath': imagePath,
-      'createdAt': createdAt,
-      'updatedAt': updatedAt,
-    };
-  }
-
-  factory Item.fromMap(Map<String, dynamic> map) => Item(
-        id: map['id'],
-        productName: map['productName'],
-        expectedPrice: map['expectedPrice'],
-        productDescription: map['productDescription'],
-        productLocation: map['productLocation'],
-        imagePath: map['imagePath'],
-        createdAt: map['createdAt'],
-        updatedAt: map['updatedAt'],
-      );
 }

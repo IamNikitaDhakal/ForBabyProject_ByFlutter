@@ -9,7 +9,7 @@ import 'package:flutterproject/Views/homepage.dart';
 import 'package:flutterproject/Views/signup.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -24,13 +24,15 @@ class _LoginScreenState extends State<LoginScreen> {
   final db = DatabaseHelper();
 
   void login() async {
-    var result = await db.authenticate(Users(
-      fullname: '', // Provide an empty string or null for fullname
-      email: userName.text,
-      usrPassword: password.text,
-    ));
+    var result = await db.authenticate(
+      Users(
+        fullname: '', // Provide an empty string or null for fullname
+        email: userName.text,
+        usrPassword: password.text,
+      ),
+    );
     if (result) {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomePage()),
       );
@@ -53,9 +55,10 @@ class _LoginScreenState extends State<LoginScreen> {
               const Text(
                 "WELCOME BACK",
                 style: TextStyle(
-                    color: submitcolor,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold),
+                  color: submitcolor,
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Image.asset(
                 "assets/logo.jpg",
@@ -106,17 +109,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       );
                     },
-                    child: const Text("SIGN UP",
-                        style: TextStyle(color: submitcolor)),
+                    child: const Text(
+                      "SIGN UP",
+                      style: TextStyle(color: submitcolor),
+                    ),
                   ),
                 ],
               ),
-              isLoginFailed
-                  ? const Text(
-                      "Username or Password is incorrect",
-                      style: TextStyle(color: errorcolor),
-                    )
-                  : const SizedBox(),
+              if (isLoginFailed)
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                  child: Text(
+                    "Username or Password is incorrect",
+                    style: TextStyle(color: errorcolor),
+                  ),
+                ),
             ],
           ),
         ),
